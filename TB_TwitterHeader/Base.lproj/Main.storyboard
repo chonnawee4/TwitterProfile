@@ -130,12 +130,16 @@
         <scene sceneID="GGA-Ay-2mo">
             <objects>
                 <viewController id="3RZ-9u-QAh" customClass="TabViewController" customModule="TB_TwitterHeader" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xrd-dH-Mqv"/>
+                        <viewControllerLayoutGuide type="bottom" id="yE7-Zf-oC8"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ABc-uC-cEd">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="609"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4qy-kw-bA2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="609"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="545"/>
                             </scrollView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EfY-cD-KPO" customClass="ButtonBarView" customModule="XLPagerTabStrip">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
@@ -154,11 +158,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4qy-kw-bA2" firstAttribute="top" secondItem="ABc-uC-cEd" secondAttribute="top" id="Er6-ZI-xKl"/>
                             <constraint firstItem="EfY-cD-KPO" firstAttribute="leading" secondItem="ABc-uC-cEd" secondAttribute="leading" id="NST-md-M87"/>
                             <constraint firstAttribute="trailing" secondItem="4qy-kw-bA2" secondAttribute="trailing" id="Ni0-YJ-vOa"/>
                             <constraint firstItem="4qy-kw-bA2" firstAttribute="leading" secondItem="ABc-uC-cEd" secondAttribute="leading" id="RT8-Ew-zB7"/>
                             <constraint firstAttribute="trailing" secondItem="EfY-cD-KPO" secondAttribute="trailing" id="YgI-N9-JXd"/>
+                            <constraint firstItem="4qy-kw-bA2" firstAttribute="top" secondItem="EfY-cD-KPO" secondAttribute="bottom" id="aBd-ed-2nN"/>
                             <constraint firstItem="EfY-cD-KPO" firstAttribute="top" secondItem="ABc-uC-cEd" secondAttribute="top" id="eBT-63-GrP"/>
                             <constraint firstAttribute="bottom" secondItem="4qy-kw-bA2" secondAttribute="bottom" id="qaY-np-WfP"/>
                         </constraints>
@@ -186,21 +190,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Page 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rA8-zG-3Jk">
-                                <rect key="frame" x="162" y="262" width="50.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAa-0e-OXK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="fvh-aG-w10" id="g3j-gr-jy6"/>
+                                    <outlet property="delegate" destination="fvh-aG-w10" id="inf-X4-LnA"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.81960784310000001" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="rA8-zG-3Jk" firstAttribute="centerX" secondItem="ux0-92-Sj8" secondAttribute="centerX" id="n4e-S1-2lU"/>
-                            <constraint firstItem="rA8-zG-3Jk" firstAttribute="centerY" secondItem="ux0-92-Sj8" secondAttribute="centerY" id="nzR-Aa-QdE"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="545"/>
+                    <connections>
+                        <outlet property="tableView" destination="nAa-0e-OXK" id="uBx-nJ-afZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QOY-dD-eHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
