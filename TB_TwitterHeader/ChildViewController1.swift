@@ -15,8 +15,26 @@ class ChildViewController1: UIViewController, IndicatorInfoProvider {
 
   @IBOutlet weak var tableView: UITableView!
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+
+    NotificationCenter.default.addObserver(self, selector: #selector(ChildViewController1.canScroll), name: Notification.Name("CANSCROLL"), object: nil)
+  }
+
   func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
     return IndicatorInfo(title: "Tweets")
+  }
+
+  func canScroll() {
+    tableView.isScrollEnabled = true
+  }
+
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let offset = scrollView.contentOffset.y
+
+    if offset < 0 {
+      tableView.isScrollEnabled = false
+    }
   }
 
 }

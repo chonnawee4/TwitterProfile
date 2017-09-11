@@ -6,9 +6,11 @@
 
 import UIKit
 
-let offset_HeaderStop:CGFloat = 40.0 // At this offset the Header stops its transformations
-let offset_B_LabelHeader:CGFloat = 95.0 // At this offset the Black label reaches the Header
-let distance_W_LabelHeader:CGFloat = 35.0 // The distance between the bottom of the Header and the top of the White Label
+let offset_HeaderStop: CGFloat = 40.0 // At this offset the Header stops its transformations
+let offset_B_LabelHeader: CGFloat = 95.0 // At this offset the Black label reaches the Header
+let distance_W_LabelHeader: CGFloat = 35.0 // The distance between the bottom of the Header and the top of the White Label
+let offset_Tab: CGFloat = 189
+let distance_Tab: CGFloat = 250.0
 
 class ViewController: UIViewController, UIScrollViewDelegate {
     
@@ -55,6 +57,8 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         let offset = scrollView.contentOffset.y
         var avatarTransform = CATransform3DIdentity
         var headerTransform = CATransform3DIdentity
+
+        print(offset)
         
         // PULL DOWN -----------------
         
@@ -98,10 +102,15 @@ class ViewController: UIViewController, UIScrollViewDelegate {
                     header.layer.zPosition = 0
                 }
                 
-            }else {
+            } else {
                 if avatarImage.layer.zPosition >= header.layer.zPosition{
                     header.layer.zPosition = 2
                 }
+            }
+
+            if offset >= offset_Tab {
+                scrollView.contentOffset.y = offset_Tab
+                NotificationCenter.default.post(name: Notification.Name("CANSCROLL"), object: nil)
             }
         }
         
