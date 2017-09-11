@@ -190,9 +190,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAa-0e-OXK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nAa-0e-OXK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <sections/>
                                 <connections>
@@ -202,6 +201,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.5568627451" green="0.81960784310000001" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nAa-0e-OXK" firstAttribute="leading" secondItem="ux0-92-Sj8" secondAttribute="leading" id="7K3-fy-0Fy"/>
+                            <constraint firstItem="1me-uv-5M1" firstAttribute="top" secondItem="nAa-0e-OXK" secondAttribute="bottom" id="S3R-Wt-kRn"/>
+                            <constraint firstItem="nAa-0e-OXK" firstAttribute="top" secondItem="ux0-92-Sj8" secondAttribute="top" id="cAV-rK-9Xe"/>
+                            <constraint firstAttribute="trailing" secondItem="nAa-0e-OXK" secondAttribute="trailing" id="rpt-C7-2IX"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="545"/>
